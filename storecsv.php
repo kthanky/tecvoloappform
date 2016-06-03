@@ -5,6 +5,7 @@
  */
 class storedata
 {
+
     function storeDatainArray()
     {
 
@@ -38,13 +39,14 @@ class storedata
             echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
         }
     }
-    function formValidation($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+
+}
+function formValidation($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 $sc=new storedata();
 $sc->storeDatainArray();
