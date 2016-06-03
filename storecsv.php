@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Kunal
- * Date: 6/3/2016
- * Time: 2:45 PM
  */
 class storedata
 {
@@ -30,8 +28,8 @@ class storedata
     {
         if ($GLOBALS['fp'])
         {
-            fputcsv($GLOBALS['fp'],$GLOBALS['csv'] );//write data in csv file
-            fclose($GLOBALS['fp']); // Close the file
+            fputcsv($GLOBALS['fp'],$GLOBALS['csv'] );
+            fclose($GLOBALS['fp']);
             unset($GLOBALS['csv']);
             unset($GLOBALS['fp']);
             echo "<script type='text/javascript'>alert('Your Data Has Been Submitted Successfully');</script>";
