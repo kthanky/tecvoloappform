@@ -146,7 +146,7 @@
               </div>
               <div class='form-group internal'>
                 <div class='col-md-11'>
-                  <input class='form-control' id='id_address2' placeholder='Address Line 2' type='text' required>
+                  <input class='form-control' name="address2" id='id_address2' placeholder='Address Line 2' type='text' required>
                 </div>
               </div>
 			</div>
@@ -166,8 +166,8 @@
               <div class='col-md-5'>
                 <div class='form-group internal input-group indent-small'>
 				  <input type="radio" name="gender" value="Male" id="id_gender" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Male</span>
-				  <input type="radio" name="gender" value="Male" id="id_gender" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Female</span>
-				  <input type="radio" name="gender" value="Male" id="id_gender" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Other</span>
+				  <input type="radio" name="gender" value="Female" id="id_gender" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Female</span>
+				  <input type="radio" name="gender" value="Others" id="id_gender" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Other</span>
                 </div>
               </div>
             </div>
@@ -193,21 +193,21 @@
             </div>
           </div>
           <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_eduback'>Education Level</label>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_edulevel'>Education Level</label>
             <div class='col-md-8'>
               <div class='col-md-8'>
                 <div class='form-group internal'>
-                <input class='form-control' id='id_eduback' type="text" name="eduback" placeholder="Masters/Graduate etc." required/>
+                <input class='form-control' id='id_edulevel' type="text" name="edulevel" placeholder="Masters/Graduate etc." required/>
                 </div>
               </div>
             </div>
           </div>
 		  <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_eduback'>Education Field</label>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_edufield'>Education Field</label>
             <div class='col-md-8'>
               <div class='col-md-8'>
                 <div class='form-group internal'>
-                <input class='form-control' id='id_eduback' type="text" name="eduback" placeholder="BE/BCom etc." required/>
+                <input class='form-control' id='id_edufield' type="text" name="edufield" placeholder="BE/BCom etc." required/>
                 </div>
               </div>
             </div>
@@ -216,15 +216,15 @@
             <label class='control-label col-md-2 col-md-offset-2' for='id_precon'>Preferred Mode Of Contact</label>
             <div class='col-md-6 indent-small'>
 				<div class='form-group internal input-group indent-small'>
-				  <input type="radio" name="precon" value="Male" id="id_precon" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Phone</span>
-				  <input type="radio" name="precon" value="Male" id="id_precon" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Email</span>
-				  <input type="radio" name="precon" value="Male" id="id_precon" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Other</span>
+				  <input type="radio" name="precon" value="Phone" id="id_precon" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Phone</span>
+				  <input type="radio" name="precon" value="Email" id="id_precon" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Email</span>
+				  <input type="radio" name="precon" value="Other" id="id_precon" style="position:relative;top:5px;" required/><span style="position:relative;top:5px;left:2px;">Other</span>
                 </div>
             </div>
           </div>
           <div class='form-group'>
             <div class='col-md-offset-4 col-md-3'>
-              <button class='btn-lg btn-primary' type='submit'>Submit</button>
+              <button class='btn-lg btn-primary' type='submit' name="Submit">Submit</button>
             </div>
           </div>
         </form>
