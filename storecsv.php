@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Kunal
- * Date: 6/3/2016
- * Time: 2:45 PM
  */
 class storedata
 {
@@ -11,27 +9,27 @@ class storedata
     {
 
         $GLOBALS['csv']=array();
-        $GLOBALS['csv'][] = $_POST['title'];
-        $GLOBALS['csv'][] = $_POST['firstname'];
-        $GLOBALS['csv'][]= $_POST['lastname'];
-        $GLOBALS['csv'][] = $_POST['email'];
-        $GLOBALS['csv'][] = $_POST['contact'];
-        $GLOBALS['csv'][] = $_POST['address1'];
-        $GLOBALS['csv'][] = $_POST['address2'];
-        $GLOBALS['csv'][] = $_POST['nation'];
-        $GLOBALS['csv'][] = $_POST['edufield'];
-        $GLOBALS['csv'][] = $_POST['edulevel'];
-        $GLOBALS['csv'][] = $_POST['gender'];
-        $GLOBALS['csv'][] = $_POST['precon'];
-        $GLOBALS['csv'][] = $_POST['dob'];
+        $GLOBALS['csv'][] = formValidation($_POST['title']);
+        $GLOBALS['csv'][] = formValidation($_POST['firstname']);
+        $GLOBALS['csv'][]= formValidation($_POST['lastname']);
+        $GLOBALS['csv'][] = formValidation($_POST['gender']);
+        $GLOBALS['csv'][] = formValidation($_POST['dob']);
+        $GLOBALS['csv'][] = formValidation($_POST['email']);
+        $GLOBALS['csv'][] = formValidation($_POST['contact']);
+        $GLOBALS['csv'][] = formValidation($_POST['address1']);
+        $GLOBALS['csv'][] = formValidation($_POST['address2']);
+        $GLOBALS['csv'][] = formValidation($_POST['nation']);
+        $GLOBALS['csv'][] = formValidation($_POST['edulevel']);
+        $GLOBALS['csv'][] = formValidation($_POST['edufield']);
+        $GLOBALS['csv'][] = formValidation($_POST['precon']);
         $GLOBALS['fp']= fopen("formdata.csv","a");
     }
     function storeInFile()
     {
         if ($GLOBALS['fp'])
         {
-            fputcsv($GLOBALS['fp'],$GLOBALS['csv'] );//write data in csv file
-            fclose($GLOBALS['fp']); // Close the file
+            fputcsv($GLOBALS['fp'],$GLOBALS['csv'] );
+            fclose($GLOBALS['fp']);
             unset($GLOBALS['csv']);
             unset($GLOBALS['fp']);
             echo "<script type='text/javascript'>alert('Your Data Has Been Submitted Successfully');</script>";
@@ -39,6 +37,13 @@ class storedata
             echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
             echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
         }
+    }
+    function formValidation($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 }
 $sc=new storedata();
