@@ -5,40 +5,42 @@
  * Date: 6/3/2016
  * Time: 2:45 PM
  */
-if(isset($_POST['submit']))
+class storedata
 {
-    $csv=array();// take an array
-    $title=$_POST['title'];
-    $fn = $_POST['firstname'];
-    $ln = $_POST['lastname'];
-    $email = $_POST['email'];
-    $contact = $_POST['contact'];
-    $address1 = $_POST['address1'];
-    $address2 = $_POST['address2'];
-    $nation = $_POST['nation'];
-    $edufield=$_POST['edufield'];
-    $edulevel=$_POST['edulevel'];
-    $gender=$_POST['gender'];
-    $precon=$_POST['precon'];
-    $dob=$_POST['dob'];
-
-    $csv[]=$fn;
-    $csv[]=$ln;  //push the values in an array.
-
-    if(empty($fn) || empty($ln))
-    {//show the form
-        $message = 'Fill in areas in red!';
-        $aClass = 'errorClass';
-    }
-
-    $fp = fopen("formTest.csv","a");
-    if($fp)
+    function storeDatainArray()
     {
-        foreach ($csv as $val)
+
+        $GLOBALS['csv']=array();
+        $GLOBALS['csv'][] = $_POST['title'];
+        $GLOBALS['csv'][] = $_POST['firstname'];
+        $GLOBALS['csv'][]= $_POST['lastname'];
+        $GLOBALS['csv'][] = $_POST['email'];
+        $GLOBALS['csv'][] = $_POST['contact'];
+        $GLOBALS['csv'][] = $_POST['address1'];
+        $GLOBALS['csv'][] = $_POST['address2'];
+        $GLOBALS['csv'][] = $_POST['nation'];
+        $GLOBALS['csv'][] = $_POST['edufield'];
+        $GLOBALS['csv'][] = $_POST['edulevel'];
+        $GLOBALS['csv'][] = $_POST['gender'];
+        $GLOBALS['csv'][] = $_POST['precon'];
+        $GLOBALS['csv'][] = $_POST['dob'];
+        $GLOBALS['fp']= fopen("formdata.csv","a");
+    }
+    function storeInFile()
+    {
+        if ($GLOBALS['fp'])
         {
-            fputcsv($fp, $val); //write data in csv file.
+            fputcsv($GLOBALS['fp'],$GLOBALS['csv'] );//write data in csv file
+            fclose($GLOBALS['fp']); // Close the file
+            unset($GLOBALS['csv']);
+            unset($GLOBALS['fp']);
+            echo "<script type='text/javascript'>alert('Your Data Has Been Submitted Successfully');</script>";
+            $URL = "index.html";
+            echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+            echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
         }
-        fclose($fp); // Close the file
     }
 }
-?>
+$sc=new storedata();
+$sc->storeDatainArray();
+$sc->storeInFile();
